@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpModule} from '@angular/http';
+import {HttpModule, JsonpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -29,7 +29,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RouterModule,
     APP_ROUTES,
     HttpModule,
-    FormsModule
+    FormsModule,
+    JsonpModule
 
 
 

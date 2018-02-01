@@ -25,9 +25,13 @@
         </tr>
         <tr *ngFor="let obra of obras ">
             <td>{{obra.idObra}} </td>
-            <td><input class="form-control " type="text " [(ngModel)]="obra.nombreObra " name="nombreObra "> </td>
-            <td><input class="form-control " type="text " [(ngModel)]="obra.clienteObra " name="clienteObra "> </td>
-            <td> <button class="btn btn-dark " (click)="editarObra(obra)">Editar</button> </td>
+            <td><input class="form-control " type="text " [(ngModel)]="obra.nombreObra" name="nombreObra" (blur)="actualizarObra()"> </td>
+            <td><input class="form-control " type="text " [(ngModel)]="obra.clienteObra" name="clienteObra" (blur)="actualizarObra()"> </td>
+            <td>
+                <button class="btn btn-dark ">Tareas</button>
+                <button class="btn btn-danger ">Desactivar</button>
+
+            </td>
         </tr>
 
     </tbody>

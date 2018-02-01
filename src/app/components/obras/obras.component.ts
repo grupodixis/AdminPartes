@@ -29,14 +29,17 @@ nuevaObra: Obras = {
         });
   }
   agregarObra() {
-    if (this.nuevaObra.nombreObra.length > 0 && this.nuevaObra.clienteObra.length > 0){
+    if (this.nuevaObra.nombreObra.length > 0 && this.nuevaObra.clienteObra.length > 0) {
       console.log(this.nuevaObra.nombreObra, this.nuevaObra.clienteObra);
+      this._ts.setObras(this.nuevaObra)
+        .subscribe(res => console.log(res));
+      this.getObras();
       this.nuevaObra.clienteObra = '';
       this.nuevaObra.nombreObra = '';
     }
   }
-  editarObra(obra: Obras) {
-    console.log(obra.clienteObra, obra.nombreObra);
+  actualizarObra(id: number) {
+    return;
   }
 
 
