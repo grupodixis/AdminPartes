@@ -31,6 +31,8 @@ nuevaObra: Obras = {
   agregarObra() {
     if (this.nuevaObra.nombreObra.length > 0 && this.nuevaObra.clienteObra.length > 0){
       console.log(this.nuevaObra.nombreObra, this.nuevaObra.clienteObra);
+      this.nuevaObra.clienteObra = '';
+      this.nuevaObra.nombreObra = '';
     }
   }
   editarObra(obra: Obras) {
