@@ -38,8 +38,8 @@ nuevaObra: Obras = {
       this.nuevaObra.nombreObra = '';
     }
   }
-  actualizarObra(id: number) {
-    return;
+  actualizarObra(obra: Obras) {
+    this._ts.putObras(obra).subscribe();
   }
 
 

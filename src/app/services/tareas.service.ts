@@ -22,13 +22,22 @@ getObras() {
 setObras(obra: Obras) {
   const url = `${this.urlBase}obras`;
   const body = JSON.stringify(obra);
-  console.log(body);
   const headers = new Headers ({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
   return this.http.post(url, body, {headers})
         .map( res => {
-          console.log(res.json());
           return res.json();
           } ) ;
 }
+putObras(obra: Obras) {
+  const url = `${this.urlBase}obras`;
+  const body = JSON.stringify(obra);
+  return this.http.put(url, body)
+        .map(res => {
+          console.log(res.json());
+          return res.json();
+
+        });
+}
+
 
 }
