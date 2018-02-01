@@ -1,0 +1,34 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre Obra</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Editar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th colspan=4>Agregar Obra:</th>
+        </tr>
+        <tr>
+            <th colspan="2">nombre de la Obra</th>
+            <th colspan="2">nombre del cliente</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input class=" form-control " type="text " name="nombreObra " [(ngModel)]="nuevaObra.nombreObra"></td>
+            <td><input class="form-control " type="text " name="clienteObra" [(ngModel)]="nuevaObra.clienteObra"></td>
+            <td><button class="btn btn-success" (click)="agregarObra()" [disabled]="nuevaObra.clienteObra.length == 0 || nuevaObra.clienteObra.length == 0 ">Agregar</button></td>
+        </tr>
+        <tr>
+            <th colspan="4 ">Listado:</th>
+        </tr>
+        <tr *ngFor="let obra of obras ">
+            <td>{{obra.idObra}} </td>
+            <td><input class="form-control " type="text " [(ngModel)]="obra.nombreObra " name="nombreObra "> </td>
+            <td><input class="form-control " type="text " [(ngModel)]="obra.clienteObra " name="clienteObra "> </td>
+            <td> <button class="btn btn-dark " (click)="editarObra(obra)">Editar</button> </td>
+        </tr>
+
+    </tbody>
+</table>
