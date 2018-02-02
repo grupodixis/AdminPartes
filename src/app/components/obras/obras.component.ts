@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TareasService } from '../../services/tareas.service';
+import { ObrasService } from '../../services/obras.service';
 import {Obras} from '../../interfaces/modelos';
 
 
@@ -14,7 +14,7 @@ nuevaObra: Obras = {
   nombreObra : '' ,
   clienteObra : ''
 };
-  constructor(private _ts: TareasService) {
+  constructor(private _os: ObrasService) {
     this.getObras();
    }
 
@@ -22,16 +22,15 @@ nuevaObra: Obras = {
   }
 
   getObras( ) {
-    this._ts.getObras()
+    this._os.getObras()
         .subscribe( obras => {
           this.obras = obras;
-          console.log(this.obras);
         });
   }
   agregarObra() {
     if (this.nuevaObra.nombreObra.length > 0 && this.nuevaObra.clienteObra.length > 0) {
       console.log(this.nuevaObra.nombreObra, this.nuevaObra.clienteObra);
-      this._ts.setObras(this.nuevaObra)
+      this._os.setObras(this.nuevaObra)
         .subscribe(res => console.log(res));
       this.getObras();
       this.nuevaObra.clienteObra = '';
@@ -39,7 +38,7 @@ nuevaObra: Obras = {
     }
   }
   actualizarObra(obra: Obras) {
-    this._ts.putObras(obra).subscribe();
+    this._os.putObras(obra).subscribe();
   }
 
 

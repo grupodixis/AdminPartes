@@ -1,3 +1,52 @@
-<p>
-  tareas works!
-</p>
+<div class="text-center text-success">
+    <h3>Agregar nueva tarea a: <small *ngIf="obra">{{obra.nombreObra}} de {{obra.clienteObra}} </small></h3>
+</div>
+
+<div class="row">
+    <div class="col-sm-5 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Tarea:</span>
+        </div>
+        <input type="text" class="form-control" placeholder="Tarea">
+    </div>
+    <div class="col-sm-5 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Tiempo Estimado:</span>
+        </div>
+        <select name="tiempoEstimado" id="" class="form-control">
+            <option *ngFor="let item of [15,30,60,120,180,240,300,360,420,480,960]" value="{{item}}">{{item /60 | number}} Hs</option>
+            </select>
+    </div>
+    <div class="col-sm-2">
+        <button class="btn btn-success" (click)="agregarTarea()" title="Agregar tarea a la obra"><i class="far fa-plus-square"></i></button>
+    </div>
+</div>
+<div class="text-center mt-4">
+    <h3>Tareas de la obra: <small *ngIf="obra">{{obra.nombreObra}}</small></h3>
+</div>
+<div *ngIf="tareas !=null">
+    <div class="row mb-2" *ngFor="let tarea of tareas; let i = index">
+        <div class="col-sm-5 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Tarea {{i+1}}: </span>
+            </div>
+            <input type="text" class="form-control" placeholder="Tarea" [(ngModel)]="tarea.nombreTarea">
+        </div>
+        <div class="col-sm-5 input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Tiempo Estimado:</span>
+            </div>
+            <input class="form-control" type="time" [(ngModel)]="tarea.tiempoEstimado">
+            <div class="input-group-prepend">
+                <span class="input-group-text">Hs</span>
+            </div>
+            <!-- <select name="tiempoEstimado" id="" class="form-control">
+            <option *ngFor="let item of [15,30,60,120,180,240,300,360,420,480,960]" value="{{item}}">{{item /60 | number}} Hs</option>
+            </select> -->
+        </div>
+        <div class="col-sm-2">
+            <button class="btn btn-danger" (click)="borrarTarea()"><i class="far fa-trash-alt"></i></button>
+            <button class="btn btn-success" title="Asignar a usuario"><i class="fas fa-user-plus"></i></button>
+        </div>
+    </div>
+</div>

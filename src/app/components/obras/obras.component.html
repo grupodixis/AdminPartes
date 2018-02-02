@@ -18,7 +18,10 @@
         <tr>
             <td colspan="2"><input class=" form-control " type="text " name="nombreObra " [(ngModel)]="nuevaObra.nombreObra"></td>
             <td><input class="form-control " type="text " name="clienteObra" [(ngModel)]="nuevaObra.clienteObra"></td>
-            <td><button class="btn btn-success" (click)="agregarObra()" [disabled]="nuevaObra.clienteObra.length == 0 || nuevaObra.clienteObra.length == 0 ">Agregar</button></td>
+            <td><button class="btn btn-outline-success" (click)="agregarObra()" [disabled]="nuevaObra.clienteObra.length == 0 || nuevaObra.clienteObra.length == 0 " data-toggle="tooltip" data-placement="top" title="Agregar Obra : Escribir nombre y cliente">
+                          <i class="far fa-plus-square"></i>
+                </button>
+            </td>
         </tr>
         <tr>
             <th colspan="4 ">Listado:</th>
@@ -27,9 +30,12 @@
             <td>{{obra.idObra}} </td>
             <td><input class="form-control " type="text " [(ngModel)]="obra.nombreObra" name="nombreObra" (blur)="actualizarObra(obra)"> </td>
             <td><input class="form-control " type="text " [(ngModel)]="obra.clienteObra" name="clienteObra" (blur)="actualizarObra(obra)"> </td>
+
             <td>
-                <button class="btn btn-dark ">Tareas</button>
-                <button class="btn btn-danger ">Desactivar</button>
+                <button class="btn btn-outline-primary " title="Gestionar Tareas" data-toggle="tooltip" data-placement="top" [routerLink]="['/tareas',obra.idObra]">
+                  <i class="far fa-calendar-check"></i>
+                </button>
+                <button class="btn btn-outline-danger " title="Desactivar" data-toggle="tooltip" data-placement="top"><i class="fas fa-power-off"></i></button>
 
             </td>
         </tr>

@@ -7,7 +7,7 @@ import { PartesComponent } from './components/partes/partes.component';
 
 export const ROUTES = [
   { path: 'obras',      component: ObrasComponent },
-  { path: 'tareas',      component: TareasComponent },
+  { path: 'tareas/:id',      component: TareasComponent },
   { path: 'partes',      component: PartesComponent },
   { path: '**',      component: ObrasComponent }
 ];

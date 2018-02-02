@@ -8,9 +8,10 @@ import { PartesComponent } from './components/partes/partes.component';
 import { ObrasComponent } from './components/obras/obras.component';
 import { TareasComponent } from './components/tareas/tareas.component';
 import { RouterModule } from '@angular/router';
-import { TareasService } from './services/tareas.service';
+import { ObrasService } from './services/obras.service';
 import { APP_ROUTES } from './app.routes';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { TareasService } from './services/tareas.service';
 
 
 @NgModule({
@@ -35,7 +36,10 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 
   ],
-  providers: [TareasService],
+  providers: [
+    ObrasService,
+    TareasService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
