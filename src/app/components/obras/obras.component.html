@@ -1,44 +1,38 @@
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Nombre Obra</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Editar</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th colspan=4>Agregar Obra:</th>
-        </tr>
-        <tr>
-            <th colspan="2">nombre de la Obra</th>
-            <th colspan="2">nombre del cliente</th>
-        </tr>
-        <tr>
-            <td colspan="2"><input class=" form-control " type="text " name="nombreObra " [(ngModel)]="nuevaObra.nombreObra"></td>
-            <td><input class="form-control " type="text " name="clienteObra" [(ngModel)]="nuevaObra.clienteObra"></td>
-            <td><button class="btn btn-outline-success" (click)="agregarObra()" [disabled]="nuevaObra.clienteObra.length == 0 || nuevaObra.clienteObra.length == 0 " data-toggle="tooltip" data-placement="top" title="Agregar Obra : Escribir nombre y cliente">
-                          <i class="far fa-plus-square"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-            <th colspan="4 ">Listado:</th>
-        </tr>
-        <tr *ngFor="let obra of obras ">
-            <td>{{obra.idObra}} </td>
-            <td><input class="form-control " type="text " [(ngModel)]="obra.nombreObra" name="nombreObra" (blur)="actualizarObra(obra)"> </td>
-            <td><input class="form-control " type="text " [(ngModel)]="obra.clienteObra" name="clienteObra" (blur)="actualizarObra(obra)"> </td>
+<div class="text-center text-success">
+    <h2>Agregar obra</h2>
+</div>
 
-            <td>
-                <button class="btn btn-outline-primary " title="Gestionar Tareas" data-toggle="tooltip" data-placement="top" [routerLink]="['/tareas',obra.idObra]">
-                  <i class="far fa-calendar-check"></i>
-                </button>
-                <button class="btn btn-outline-danger " title="Desactivar" data-toggle="tooltip" data-placement="top"><i class="fas fa-power-off"></i></button>
-
-            </td>
-        </tr>
-
-    </tbody>
-</table>
+<div class="row">
+    <div class="col-sm-5 mb-2 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-success text-white">Obra:</span>
+        </div><input class=" form-control " type="text " name="nombreObra " [(ngModel)]="nuevaObra.nombreObra"></div>
+    <div class="col-sm-5 mb-2 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text bg-success text-white">Cliente:</span>
+        </div><input class="form-control " type="text " name="clienteObra" [(ngModel)]="nuevaObra.clienteObra"></div>
+    <div class="col-sm-2 mb-2 ">
+        <button class="btn btn-outline-success" (click)="agregarObra()" [disabled]="nuevaObra.clienteObra.length == 0 || nuevaObra.clienteObra.length == 0 " data-toggle="tooltip" data-placement="top" title="Agregar Obra : Escribir nombre y cliente">
+            <i class="far fa-plus-square"></i>
+        </button>
+    </div>
+</div><hr>
+<div class="row" *ngFor="let obra of obras; let i =index ">
+    <div class="col-sm-5 mb-2 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Obra:</span>
+        </div>
+        <input class="form-control " type="text " [(ngModel)]="obra.nombreObra" name="nombreObra" (blur)="actualizarObra(obra)"> </div>
+    <div class="col-sm-5 mb-2 input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Cliente:</span>
+        </div><input class="form-control " type="text " [(ngModel)]="obra.clienteObra" name="clienteObra" (blur)="actualizarObra(obra)"></div>
+    <div class="col-sm-2 mb-2">
+        <button class="btn btn-outline-primary " title="Gestionar Tareas" data-toggle="tooltip" data-placement="top" [routerLink]="['/tareas',obra.idObra]">
+            <i class="far fa-calendar-check"></i>
+        </button>
+        <button class="btn btn-outline-danger " title="Desactivar" data-toggle="tooltip" data-placement="top">
+            <i class="fas fa-power-off"></i>
+        </button>
+    </div>
+</div>

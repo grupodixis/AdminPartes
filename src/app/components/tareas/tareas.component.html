@@ -7,18 +7,30 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Tarea:</span>
         </div>
-        <input type="text" class="form-control" placeholder="Tarea">
+        <input type="text" 
+        class="form-control" 
+        placeholder="Tarea" 
+        [(ngModel)]="nuevaTarea.nombreTarea">
     </div>
     <div class="col-sm-5 input-group">
         <div class="input-group-prepend">
             <span class="input-group-text">Tiempo Estimado:</span>
         </div>
-        <select name="tiempoEstimado" id="" class="form-control">
-            <option *ngFor="let item of [15,30,60,120,180,240,300,360,420,480,960]" value="{{item}}">{{item /60 | number}} Hs</option>
+        <select name="tiempoEstimado" class="form-control" [(ngModel)]="nuevaTarea.tiempoEstimado">
+            <option *ngFor="let item of [15,30,60,120,180,240,300,360,420,480,960]" 
+                value="{{item}}" 
+                selected="item ==15" >
+                {{item /60 | number}} Hs
+            </option>
             </select>
     </div>
     <div class="col-sm-2">
-        <button class="btn btn-success" (click)="agregarTarea()" title="Agregar tarea a la obra"><i class="far fa-plus-square"></i></button>
+        <button class="btn btn-success" 
+        (click)="agregarTarea()" 
+        title="Agregar tarea a la obra" 
+        >
+            <i class="far fa-plus-square"></i>
+        </button>
     </div>
 </div>
 <div class="text-center mt-4">
@@ -40,9 +52,6 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">Hs</span>
             </div>
-            <!-- <select name="tiempoEstimado" id="" class="form-control">
-            <option *ngFor="let item of [15,30,60,120,180,240,300,360,420,480,960]" value="{{item}}">{{item /60 | number}} Hs</option>
-            </select> -->
         </div>
         <div class="col-sm-2">
             <button class="btn btn-danger" (click)="borrarTarea()"><i class="far fa-trash-alt"></i></button>
